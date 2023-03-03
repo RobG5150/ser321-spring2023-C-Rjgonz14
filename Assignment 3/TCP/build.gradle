@@ -48,7 +48,7 @@ task Client(type: JavaExec){
         args(project.getProperty('host'), project.getProperty('port'));
     }
     else{
-        args '34.221.202.82' // or local host
+        args 'localhost'
         args '8080'
     }
 }

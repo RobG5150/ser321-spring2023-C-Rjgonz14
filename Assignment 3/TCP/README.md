@@ -88,6 +88,13 @@ gradle Gui
 - appendOutput(String message) :  Add message to output text
 
 ### Project Description
+
+This program provides a game for the user to play in which a series of quotes is presented 
+to the player and it is their goal to guess three quotes correctly and gain as many points
+as possible. when the game is finished, the player will be notified and shown the amount of points
+they earned. if the player gains enough points, their name is put on the leaderboard. The player is then 
+offered either to start a new game or quit the program. 
+
 ### Requirements for Assignment
 #### "x" next to task means completed "-" means incomplete
 
@@ -113,6 +120,7 @@ gradle Gui
 - if client types name when game is over, game will restart. x
 
 ### How to run the program
+
 Step 1: open two git bash windows making sure that one directed to the local TCP file for assignment 3 
 and the other is connected to the server TCP file for assignment 3. if you plan to run this program locally,
 make sure that both git bash windows are in the local TCP assignment 3 folder. 
@@ -129,6 +137,74 @@ Step 4: Once the server is running, go to your client git bash window and run th
 run the client and have it connect with the server. When it establishes a successful connection, the program
 GUI will then pop up and run the game for the client. 
 
-### UML
+### UML and Video
+Both uml and video can be found using this google drive link
 [](https://drive.google.com/drive/folders/1EY4ikTnqitbKN1sEoSXkCoYT3R7m21Mc?usp=share_link)
+
+
 ### Protocol explanation
+
+###Game:###
+    Request:
+    {
+        "type" : "game"
+    }
+    General Response:
+    {
+        "type" : "game" - echo of response
+    }
+###Name:###
+Request:
+{
+"type" : Name"
+"playerID" : <String> -user input name
+}
+General Response:
+{
+"type" : playerID - user input name 
+}
+###Leader:###
+Request:
+{
+"type" : "leader"
+}
+General Response:
+{
+"type" : leaderboard - leaderboard of program
+}
+###Start:###
+Request:
+{
+"type" : "start"
+}
+General Response:
+{
+"type" : "start" - echo of response
+}
+###More:###
+Request:
+{
+"type" : "more"
+}
+General Response:
+{
+"type" : "more" - echo of response
+}
+###Eval:###
+Request:
+{
+"type" : "eval"
+}
+General Response:
+{
+"type" : "eval" - echo of response
+}
+###Quit:###
+Request:
+{
+"type" : "quit"
+}
+General Response:
+{
+"type" : "quit" - echo of response
+}
