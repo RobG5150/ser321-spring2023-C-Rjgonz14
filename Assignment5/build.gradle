@@ -1,0 +1,49 @@
+apply plugin: 'java'
+
+//group 'org.example'
+//version '1.0-SNAPSHOT'
+
+//repositories {
+  //  mavenCentral()
+//}
+
+dependencies {
+ //   testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+  //  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+}
+
+task leader(type: JavaExec){
+classpath = sourceSets.main.runtimeClasspath
+    description = "Run LeaderNode Server"
+    main = 'LeaderNode'
+    // default args
+    args '8080' // port
+
+}
+task node(type: JavaExec){
+    classpath = sourceSets.main.runtimeClasspath
+    description = "Run Bank Node"
+    main = 'Bank'
+//    args = 'localhost'
+  //  args = 8080
+if(project.hasProperty("money")){
+    args(project.getProperty('money'));
+}
+if(project.hasProperty("id")){
+    args(project.getProperty('id'))
+}
+}
+
+task client(type: JavaExec){
+    standardInput = System.in;
+    classpath = sourceSets.main.runtimeClasspath
+    description = "Run client"
+    main = 'Client'
+    // default args
+    args '8080' // port
+
+}
+//test {
+  //  useJUnitPlatform()
+//}

@@ -1,0 +1,27 @@
+How to run the program:
+Step 1: through command line, Start the LeaderNode class by using the gradle command "gradle leader"
+Step 2: Start 2 bank classes to connect to the LeaderNode class. Each needs an id and initial amount of money.
+    Start them by using the gradle command "gradle node -Pmoney=(inital amount of money) -Pid=(chosen id)
+Step 3: Start the client class to connect to the LeaderNode class by using the gradle command "gradle client"
+Step 4: When the client class connects, it will prompt you for a few different options: Request Credit, Request Payback,
+    Request Balance. You may run whichever command you like in however order youd like but it is recommended that you
+    request credit, request balance, then request payback in that order to see the full functionality of the system.
+Step 5: Unfortunately at this point there is no implementation to close out of the system through command line. so the
+    recommended way to do so is by pressing CTRL+C in each command window and closing each program.
+
+------------------------------------------------------------------------------------------------------------------------
+
+How the Classes communicate with eachother:
+The LeaderNode class is first initialized and will handle any incoming connections from both the Client
+    class and the Bank class. Requests for the system are only made through the Client class. All requests sent by the
+    client except Request Balance may only be completely processed if a majority Banks that are currently connected to the
+    LeaderNode class allow it to do so. Thus adhering to the general setup to a consensus algorithm.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Protocol:
+
+My protocol is a little jumbled as it was modified to something different towards the completion of this assignment.
+    Essentially to communicate requests between classes, each class will send a code to eachother to designate the
+    initialization of a certain method. While this works, it isnt very well defined or organized. While this definitely
+    could have been set up better, i feel that it completes the job well.
